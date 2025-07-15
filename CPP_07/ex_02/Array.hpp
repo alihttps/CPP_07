@@ -47,23 +47,26 @@ class Array
     {
         return _len;
     }
+    T& get_elem(unsigned int i) const
+    {
+        return t_array[i];
+    }
     ~Array()
     {
         delete[] t_array;
     }
 };
 
-// template <typename T, int N>
-// std::ostream &operator<<(std::ostream &os, const Array<T> &a)
-// {
-//     // for (int i = 0; i < a.size(); ++i)
-//     // {
-//     //     os << a[i];
-//     // }
-//     os << a;
+template <typename T>
+std::ostream &operator<<(std::ostream &os, const Array<T> &a)
+{
+    for (size_t i = 0; i < a.size(); ++i)
+    {
+        os << a.get_elem(i);
+    }
 
-//     return os;
-// }
+    return os;
+}
 
 
 #endif
